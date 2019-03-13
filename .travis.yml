@@ -1,0 +1,4 @@
+language: shell
+script:
+  - bash -c 'shopt -s globstar; shellcheck -e SC2068 hooks/*'
+
