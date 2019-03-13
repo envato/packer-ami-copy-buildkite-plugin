@@ -1,0 +1,19 @@
+name: packer-ami-copy
+description: build a packer template and copy it to any number of other accounts
+author: https://github.com/envato
+requirements:
+  - aws
+  - docker
+configuration:
+  properties:
+    packer_commands:
+      type:
+        - string
+        - array
+    packer_template:
+      type: string
+    env_vars:
+      type: array
+  required:
+    - packer_commands
+    - packer_template

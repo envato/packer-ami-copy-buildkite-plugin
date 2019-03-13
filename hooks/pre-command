@@ -1,0 +1,6 @@
+#!/bin/bash
+
+set -eu -o pipefail
+
+# login to ECR
+eval "$(aws ecr get-login --registry-ids "${ECR_ACCOUNT_ID}" --no-include-email)"

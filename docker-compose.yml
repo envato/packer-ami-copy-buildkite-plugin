@@ -1,0 +1,11 @@
+version: '3.4'
+services:
+  tests:
+    image: buildkite/plugin-tester
+    volumes:
+      - ".:/plugin"
+    environment:
+      - PACKER_SECURITY_GROUP_ID
+      - PACKER_SUBNET_ID
+      - PACKER_IAM_INSTANCE_PROFILE
+      - PACKER_SSH_INTERFACE
