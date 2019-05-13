@@ -15,6 +15,9 @@ steps:
           env_vars:
             - "PASS_VAR"
             - "A_DEFAULT=a_value"
+          load_artifacts:
+            - "build/artifact.zip"
+            - "log/file.txt"
 ```
 
 ## Configuration
@@ -26,7 +29,10 @@ Valid packer commands.  Either a single command, or a list of them
 Path within repo to packer template
 
 ### env\_vars
-List of additional environment variables available to packer template
+(Optional) List of additional environment variables available to packer template
+
+### load\_artifacts
+(Optional) List of paths to artifacts to load into environment
 
 ## License
 MIT ([LICENSE](LICENSE))
