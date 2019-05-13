@@ -46,6 +46,12 @@ for cmd in ${cmds[@]}; do
   fi
 done
 
+# Download artifacts
+artifact_paths=$(plugin_read_list LOAD_ARTIFACTS)
+for ap in ${artifact_paths[@]}; do
+  buildkite-agent artifact download "${ap}" .
+done
+
 # Execute packer commands
 for cmd in ${cmds[@]}; do
   echo "--- :packer: ${cmd} ${template[0]}"
