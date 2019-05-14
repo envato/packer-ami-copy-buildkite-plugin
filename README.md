@@ -18,6 +18,9 @@ steps:
           load_artifacts:
             - "build/artifact.zip"
             - "log/file.txt"
+          prep_commands:
+            - unzip build/artifact.zip
+            - cp /dev/null log/file.txt
 ```
 
 ## Configuration
@@ -33,6 +36,9 @@ Path within repo to packer template
 
 ### load\_artifacts
 (Optional) List of paths to artifacts to load into environment
+
+### prep\_commands
+(Optional) List of commands to run against the local repo before executing packer
 
 ## License
 MIT ([LICENSE](LICENSE))

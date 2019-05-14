@@ -38,7 +38,7 @@ if [ ! -f "${template[0]}" ]; then
 fi
 
 # Validate packer commands
-cmds="$(plugin_read_list PACKER_COMMANDS)"
+cmds=$(plugin_read_list PACKER_COMMANDS)
 for cmd in ${cmds[@]}; do
   if [[ ! "${cmd}" =~ ^(build|fix|inspect|validate|version)$ ]]; then
     echo "Error: ${cmd} is not a valid packer command"
@@ -50,6 +50,20 @@ done
 artifact_paths=$(plugin_read_list LOAD_ARTIFACTS)
 for ap in ${artifact_paths[@]}; do
   buildkite-agent artifact download "${ap}" .
+done
+
+# Eval Prep commands
+
+# explicit delcare required, because the array element count in the if predicate below
+# generates an unbound variable error when the array is empty and 'set -u' is in play
+declare -a prep_commands
+prep_commands=$(plugin_read_list PREP_COMMANDS)
+if [ "${#prep_commands[@]}" -ne 0 ]; then
+  echo "--- Executing Prep Commands"
+fi
+for cmd in "${prep_commands[@]}"; do
+    echo "${cmd}"
+    eval "${cmd}"
 done
 
 # Execute packer commands
