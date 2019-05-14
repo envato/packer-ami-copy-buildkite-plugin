@@ -7,7 +7,7 @@ A buildkite plugin to simplify building AMI's with packer
 steps:
   - label: ":packer: New AMI"
     plugins:
-      - envato/packer-ami-copy#v0.2:
+      - envato/packer-ami-copy#v0.3:
           packer_commands:
             - validate
             - build
