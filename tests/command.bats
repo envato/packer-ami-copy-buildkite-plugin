@@ -46,7 +46,7 @@ setup () {
   assert_output --partial "test message 123"
 }
 
-@test "reaches end (success) {
+@test "reaches end (success)" {
   export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_TEMPLATE=$PWD/tests/test-template.json
   export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_0=validate
   export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_1=build
