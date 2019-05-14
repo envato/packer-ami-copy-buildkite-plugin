@@ -28,6 +28,19 @@ export DOCKER_IMAGE=packer-ami-copy
   assert_failure
 }
 
+@test "executes prep_commands correctly" {
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_TEMPLATE=$PWD/tests/test-template.json
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_0=validate
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_1=build
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PREP_COMMANDS_0="echo test message 123"
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PREP_COMMANDS_1="exit 1"
+
+  run $PWD/hooks/command
+
+  assert_failure
+  assert_output --partial "test message 123"
+}
+
 @test "reaches end (fails with docker not found)" {
   export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_TEMPLATE=$PWD/tests/test-template.json
   export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_0=validate
@@ -38,3 +51,4 @@ export DOCKER_IMAGE=packer-ami-copy
   assert_failure
   assert_output --partial "docker: command not found"
 }
+
