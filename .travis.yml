@@ -1,4 +1,4 @@
 language: shell
 script:
-  - bash -c 'shopt -s globstar; shellcheck -e SC2068 hooks/*'
+  - bash -c 'shopt -s globstar; shellcheck -e SC2068 -e SC2178 hooks/*'
 
