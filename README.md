@@ -12,6 +12,7 @@ steps:
             - validate
             - build
           packer_template: path/to/template.json
+          chdir: another/path
           env_vars:
             - "PASS_VAR"
             - "A_DEFAULT=a_value"
