@@ -32,7 +32,7 @@ done
 
 # update pwd if chdir parameter is set
 chdir=$(plugin_read_list CHDIR)
-if [ ! -z "${chdir[0]}" ]; then
+if [ -n "${chdir[0]}" ]; then
   if [ -d "${chdir[0]}" ]; then
     cd "${chdir[0]}"
   else
