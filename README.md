@@ -31,6 +31,9 @@ Valid packer commands.  Either a single command, or a list of them
 ### packer\_template
 Path within repo to packer template
 
+### chdir
+(Optional) Set working directory within repo.  If specified, all paths will be relative to this.
+
 ### env\_vars
 (Optional) List of additional environment variables available to packer template
 
