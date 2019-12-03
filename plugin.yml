@@ -12,7 +12,13 @@ configuration:
         - array
     packer_template:
       type: string
+    chdir:
+      type: string
     env_vars:
+      type: array
+    load_artifacts:
+      type: array
+    prep_commands:
       type: array
   required:
     - packer_commands

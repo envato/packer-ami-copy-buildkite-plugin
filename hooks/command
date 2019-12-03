@@ -30,6 +30,17 @@ for e in $(plugin_read_list ENV_VARS); do
   env_vars+=("--env ${e}")
 done
 
+# update pwd if chdir parameter is set
+chdir=$(plugin_read_list CHDIR)
+if [ ! -z "${chdir[0]}" ]; then
+  if [ -d "${chdir[0]}" ]; then
+    cd "${chdir[0]}"
+  else
+    echo "Error: chdir parameter is set, but directory doesn't exist"
+    exit 1
+  fi
+fi
+
 # Check that the template exists
 template=$(plugin_read_list PACKER_TEMPLATE)
 if [ ! -f "${template[0]}" ]; then

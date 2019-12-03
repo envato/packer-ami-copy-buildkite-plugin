@@ -46,6 +46,17 @@ setup () {
   assert_output --partial "test message 123"
 }
 
+@test "uses chdir parameter to change PWD correctly" {
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_TEMPLATE=test-template.json
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_0=validate
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_1=build
+  export BUILDKITE_PLUGIN_PACKER_AMI_COPY_CHDIR=tests
+
+  run $PWD/hooks/command
+
+  assert_success
+}
+
 @test "reaches end (success)" {
   export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_TEMPLATE=$PWD/tests/test-template.json
   export BUILDKITE_PLUGIN_PACKER_AMI_COPY_PACKER_COMMANDS_0=validate
@@ -55,4 +66,3 @@ setup () {
 
   assert_success
 }
-
