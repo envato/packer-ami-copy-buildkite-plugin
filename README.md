@@ -44,5 +44,13 @@ Path within repo to packer template
 ### prep\_commands
 (Optional) List of commands to run against the local repo before executing packer
 
+## Docs
+
+Detailed instructions on how to use packer-ami-copy in your buildkite pipeline can be found here: https://docs.envato.net/q/#/guides/packer-ami-copy
+
+## Notes
+
+  - Prior to v0.5 the plugin relied on the user manually setting 2 environment variables.  As of v0.5 this is no longer required, as the values are populated via Systems manager parameter store.
+
 ## License
 MIT ([LICENSE](LICENSE))
