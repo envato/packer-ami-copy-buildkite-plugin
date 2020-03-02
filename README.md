@@ -50,7 +50,7 @@ Detailed instructions on how to use packer-ami-copy in your buildkite pipeline c
 
 ## Notes
 
-  - Prior to v0.5 the plugin relied on the user manually setting 2 environment variables.  As of v0.5 this is no longer required, as the values are populated via Systems manager parameter store.
+  - Prior to v0.5 the plugin relied on the user manually setting 2 environment variables.  As of v0.5 this is no longer required, as the values are populated via AWS systems manager parameter store.
 
 ## License
 MIT ([LICENSE](LICENSE))
