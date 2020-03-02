@@ -7,7 +7,7 @@ A buildkite plugin to simplify building AMI's with packer
 steps:
   - label: ":packer: New AMI"
     plugins:
-      - envato/packer-ami-copy#v0.3:
+      - envato/packer-ami-copy#v0.5:
           packer_commands:
             - validate
             - build
@@ -43,6 +43,14 @@ Path within repo to packer template
 
 ### prep\_commands
 (Optional) List of commands to run against the local repo before executing packer
+
+## Docs
+
+Detailed instructions on how to use packer-ami-copy in your buildkite pipeline can be found here: https://docs.envato.net/q/#/guides/packer-ami-copy
+
+## Notes
+
+  - Prior to v0.5 the plugin relied on the user manually setting 2 environment variables.  As of v0.5 this is no longer required, as the values are populated via AWS systems manager parameter store.  Since this plugin is only supposed to run on the platform-docker-spot queue, the agents should always have access to the parameters.
 
 ## License
 MIT ([LICENSE](LICENSE))
