@@ -4,7 +4,7 @@ set -eu -o pipefail
 
 echo "--- Setting environment vars..."
 
-ECR_ACCOUNT_ID=$(aws ssm get-parameter --name /packer-ami-copy/ECR-account-id --with-decryption | jq -r '.Parameter | .Value')
+ECR_ACCOUNT_ID=$(aws ssm get-parameters --name /packer-ami-copy/ECR-account-id --with-decryption | jq -r '.Parameters | .[] | .Value')
 export ECR_ACCOUNT_ID
-DOCKER_IMAGE=$(aws ssm get-parameter --name /packer-ami-copy/docker-image --with-decryption | jq -r '.Parameter | .Value')
+DOCKER_IMAGE=$(aws ssm get-parameters --name /packer-ami-copy/docker-image --with-decryption | jq -r '.Parameters | .[] | .Value')
 export DOCKER_IMAGE
