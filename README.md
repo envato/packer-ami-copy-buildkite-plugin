@@ -1,6 +1,6 @@
-[![tests](https://github.com/envato/packer-ami-copy-buildkite-plugin/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/envato/packer-ami-copy-buildkite-plugin/actions/workflows/test.yml)
-
 # Packer AMI Copy Buildkite Plugin 
+
+[![tests](https://github.com/envato/packer-ami-copy-buildkite-plugin/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/envato/packer-ami-copy-buildkite-plugin/actions/workflows/test.yml)
 
 A buildkite plugin to simplify building AMI's with packer
 
