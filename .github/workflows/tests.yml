@@ -12,9 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: tests
-        run: |
-          cd /plugin/
-          bats tests/
+        run: bats tests/
   plugin-lint:
     name: Lint
     runs-on: ubuntu-latest
