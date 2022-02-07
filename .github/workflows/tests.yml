@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: lint
-        run: lint --id envato/packer-ami-copy-buildkite-plugin
+        run: lint --id envato/packer-ami-copy
   plugin-shellcheck:
     name: Shellcheck
     runs-on: ubuntu-latest
