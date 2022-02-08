@@ -1,6 +1,7 @@
 #!/usr/bin/env bats
 
 load "$BATS_PATH/load.bash"
+load helpers/mocks/stub
 
 export PACKER_SECURITY_GROUP_ID='sg-12345'
 export PACKER_SUBNET_ID='subnet-54321'
