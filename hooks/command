@@ -67,7 +67,7 @@ done
 
 # explicit delcare required, because the array element count in the if predicate below
 # generates an unbound variable error when the array is empty and 'set -u' is in play
-# declare -a prep_commands
+declare -a prep_commands
 prep_commands=$(plugin_read_list PREP_COMMANDS)
 if [ "${#prep_commands[@]}" -ne 0 ]; then
   echo "--- Executing Prep Commands"
